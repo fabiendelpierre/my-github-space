@@ -69,3 +69,7 @@ resource "github_repository" "azure_msdn_subscription" {
     repository = github_repository.tf_repo_template.name
   }
 }
+
+output "azure_msdn_subscription_repo" {
+  value = github_repository.azure_msdn_subscription
+}
