@@ -47,3 +47,14 @@ terraform {
 ```
 EOF
 }
+
+resource "github_repository" "tf_cloud_administration" {
+  name        = "my-terraform-cloud-account-admin"
+  description = "Manages my Terraform Cloud account"
+  visibility  = "public"
+
+  template {
+    owner = github_repository.tf_repo_template.owner
+    repository = github_repository.tf_repo_template.name
+  }
+}
