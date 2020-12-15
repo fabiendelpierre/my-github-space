@@ -73,3 +73,18 @@ resource "github_repository" "azure_msdn_subscription" {
 output "azure_msdn_subscription_repo" {
   value = github_repository.azure_msdn_subscription
 }
+
+resource "github_repository" "vault_configuration" {
+  name        = "my-vault-cluster-configuration"
+  description = "Manages my Hashicorp Vault instance in Azure"
+  visibility  = "public"
+
+  template {
+    owner = split("/",github_repository.tf_repo_template.full_name)[0]
+    repository = github_repository.tf_repo_template.name
+  }
+}
+
+output "vault_configuration_repo" {
+  value = github_repository.vault_configuration
+}
