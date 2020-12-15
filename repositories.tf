@@ -58,3 +58,14 @@ resource "github_repository" "tf_cloud_administration" {
     repository = github_repository.tf_repo_template.name
   }
 }
+
+resource "github_repository" "tf_cloud_administration" {
+  name        = "my-azure-msdn-subscription"
+  description = "Manages my Azure MSDN subscription with Terraform"
+  visibility  = "public"
+
+  template {
+    owner = split("/",github_repository.tf_repo_template.full_name)[0]
+    repository = github_repository.tf_repo_template.name
+  }
+}
