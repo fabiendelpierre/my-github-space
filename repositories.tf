@@ -3,6 +3,7 @@ resource "github_repository" "tf_repo_template" {
   description = "My template for Terraform code repositories"
   visibility  = "public"
 
+  auto_init   = true
   is_template = true
 
   has_issues    = true
