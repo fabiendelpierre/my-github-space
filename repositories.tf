@@ -59,7 +59,7 @@ resource "github_repository" "tf_cloud_administration" {
   }
 }
 
-resource "github_repository" "tf_cloud_administration" {
+resource "github_repository" "azure_msdn_subscription" {
   name        = "my-azure-msdn-subscription"
   description = "Manages my Azure MSDN subscription with Terraform"
   visibility  = "public"
