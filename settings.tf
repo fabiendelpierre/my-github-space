@@ -9,4 +9,5 @@ terraform {
   }
 }
 
+# Use GITHUB_TOKEN and GITHUB_OWNER env variables in TF Cloud to configure provider
 provider "github" {}
