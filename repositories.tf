@@ -54,7 +54,7 @@ resource "github_repository" "tf_cloud_administration" {
   visibility  = "public"
 
   template {
-    owner = github_repository.tf_repo_template.owner
+    owner = split("/",github_repository.tf_repo_template.full_name)[0]
     repository = github_repository.tf_repo_template.name
   }
 }
