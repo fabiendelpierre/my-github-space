@@ -13,3 +13,37 @@ resource "github_repository" "tf_repo_template" {
   gitignore_template  = "Terraform"
   license_template    = "unlicense"
 }
+
+resource "github_repository_file" "tf_repo_template_readme" {
+  repository  = github_repository.tf_repo_template.name
+  branch      = github_repository.tf_repo_template.default_branch
+  file        = "README.md"
+
+  commit_message  = "README template"
+  commit_author   = "Terraform Cloud"
+  commit_email    = "foo@app.terraform.io"
+
+  overwrite_on_create = true
+
+  content = <<EOF
+# Terraform code repository
+
+Short description
+
+## What this does
+
+Lorem ipsum
+
+## How to use it
+
+Lorem ipsum
+
+## Code example
+
+```hcl
+terraform {
+  ...
+}
+```
+EOF
+}
