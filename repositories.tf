@@ -34,7 +34,7 @@ Short description
 
 Lorem ipsum
 
-## How to use it
+## Variables
 
 Lorem ipsum
 
