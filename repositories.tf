@@ -100,6 +100,10 @@ resource "github_repository" "module_azurerm_keyvault" {
   }
 }
 
+output "module_azurerm_keyvault_repo" {
+  value = github_repository.module_azurerm_keyvault
+}
+
 resource "github_repository" "module_azurerm_virtualnetwork" {
   name        = "terraform-azurerm-virtualnetwork"
   description = "Simple module to create an Azure Virtual Network"
@@ -109,4 +113,8 @@ resource "github_repository" "module_azurerm_virtualnetwork" {
     owner = split("/",github_repository.tf_repo_template.full_name)[0]
     repository = github_repository.tf_repo_template.name
   }
+}
+
+output "module_azurerm_virtualnetwork_repo" {
+  value = github_repository.module_azurerm_virtualnetwork
 }
