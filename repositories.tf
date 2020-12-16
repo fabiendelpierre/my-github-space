@@ -89,7 +89,7 @@ output "vault_configuration_repo" {
   value = github_repository.vault_configuration
 }
 
-resource "github_repository" "module_azurerm_key_vault" {
+resource "github_repository" "module_azurerm_keyvault" {
   name        = "terraform-azurerm-keyvault"
   description = "Simple module to create an Azure Key Vault instance"
   visibility  = "public"
