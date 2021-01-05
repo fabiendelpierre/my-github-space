@@ -118,3 +118,18 @@ resource "github_repository" "module_azurerm_virtualnetwork" {
 output "module_azurerm_virtualnetwork_repo" {
   value = github_repository.module_azurerm_virtualnetwork
 }
+
+resource "github_repository" "module_azurerm_hashicorpvault" {
+  name        = "terraform-azurerm-hashicorpvault"
+  description = "Create a Hashicorp Vault VM in Azure"
+  visibility  = "public"
+
+  template {
+    owner = split("/",github_repository.tf_repo_template.full_name)[0]
+    repository = github_repository.tf_repo_template.name
+  }
+}
+
+output "module_azurerm_hashicorpvault_repo" {
+  value = github_repository.module_azurerm_hashicorpvault
+}
