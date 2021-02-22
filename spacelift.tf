@@ -13,7 +13,7 @@ resource "github_repository" "spacelift_administration" {
 }
 
 resource "github_repository" "azure_msdn_subscription_spacelift" {
-  name        = "my-azure-msdn-subscription_spacelift"
+  name        = "my-azure-msdn-subscription-spacelift"
   description = "Manages my Azure MSDN subscription with Terraform and Spacelift.io"
   visibility  = "public"
 
