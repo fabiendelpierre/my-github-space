@@ -113,6 +113,12 @@ resource "github_actions_secret" "vault_config_oidc_allowed_redirect_uris" {
   plaintext_value  = var.vault_config_oidc_allowed_redirect_uris
 }
 
+resource "github_actions_secret" "vault_config_oidc_group_mappings" {
+  repository       = github_repository.vault_configuration.name
+  secret_name      = "TF_VAR_oidc_group_mappings"
+  plaintext_value  = var.vault_config_oidc_group_mappings
+}
+
 resource "github_repository" "module_azurerm_keyvault" {
   name        = "terraform-azurerm-keyvault"
   description = "Simple module to create an instance of Azure Key Vault"
