@@ -6,22 +6,22 @@ resource "github_repository" "tf_repo_template" {
   auto_init   = true
   is_template = true
 
-  has_issues    = true
-  has_projects  = false
-  has_wiki      = true
+  has_issues   = true
+  has_projects = false
+  has_wiki     = true
 
-  gitignore_template  = "Terraform"
-  license_template    = "unlicense"
+  gitignore_template = "Terraform"
+  license_template   = "unlicense"
 }
 
 resource "github_repository_file" "tf_repo_template_readme" {
-  repository  = github_repository.tf_repo_template.name
-  branch      = github_repository.tf_repo_template.default_branch
-  file        = "README.md"
+  repository = github_repository.tf_repo_template.name
+  branch     = github_repository.tf_repo_template.default_branch
+  file       = "README.md"
 
-  commit_message  = "README template"
-  commit_author   = "Terraform Cloud"
-  commit_email    = "foo@app.terraform.io"
+  commit_message = "README template"
+  commit_author  = "Terraform Cloud"
+  commit_email   = "foo@app.terraform.io"
 
   overwrite_on_create = true
 
@@ -54,7 +54,7 @@ resource "github_repository" "tf_cloud_administration" {
   visibility  = "public"
 
   template {
-    owner = split("/",github_repository.tf_repo_template.full_name)[0]
+    owner      = split("/", github_repository.tf_repo_template.full_name)[0]
     repository = github_repository.tf_repo_template.name
   }
 }
@@ -65,7 +65,7 @@ resource "github_repository" "azure_msdn_subscription" {
   visibility  = "public"
 
   template {
-    owner = split("/",github_repository.tf_repo_template.full_name)[0]
+    owner      = split("/", github_repository.tf_repo_template.full_name)[0]
     repository = github_repository.tf_repo_template.name
   }
 }
@@ -80,7 +80,7 @@ resource "github_repository" "vault_configuration" {
   visibility  = "public"
 
   template {
-    owner = split("/",github_repository.tf_repo_template.full_name)[0]
+    owner      = split("/", github_repository.tf_repo_template.full_name)[0]
     repository = github_repository.tf_repo_template.name
   }
 }
@@ -90,33 +90,33 @@ output "vault_configuration_repo" {
 }
 
 resource "github_actions_secret" "vault_config_oidc_discovery_url" {
-  repository       = github_repository.vault_configuration.name
-  secret_name      = "TF_VAR_oidc_discovery_url"
-  plaintext_value  = var.vault_config_oidc_discovery_url
+  repository      = github_repository.vault_configuration.name
+  secret_name     = "TF_VAR_oidc_discovery_url"
+  plaintext_value = var.vault_config_oidc_discovery_url
 }
 
 resource "github_actions_secret" "vault_config_oidc_client_id" {
-  repository       = github_repository.vault_configuration.name
-  secret_name      = "TF_VAR_oidc_client_id"
-  plaintext_value  = var.vault_config_oidc_client_id
+  repository      = github_repository.vault_configuration.name
+  secret_name     = "TF_VAR_oidc_client_id"
+  plaintext_value = var.vault_config_oidc_client_id
 }
 
 resource "github_actions_secret" "vault_config_oidc_client_secret" {
-  repository       = github_repository.vault_configuration.name
-  secret_name      = "TF_VAR_oidc_client_secret"
-  plaintext_value  = var.vault_config_oidc_client_secret
+  repository      = github_repository.vault_configuration.name
+  secret_name     = "TF_VAR_oidc_client_secret"
+  plaintext_value = var.vault_config_oidc_client_secret
 }
 
 resource "github_actions_secret" "vault_config_oidc_allowed_redirect_uris" {
-  repository       = github_repository.vault_configuration.name
-  secret_name      = "TF_VAR_oidc_allowed_redirect_uris"
-  plaintext_value  = var.vault_config_oidc_allowed_redirect_uris
+  repository      = github_repository.vault_configuration.name
+  secret_name     = "TF_VAR_oidc_allowed_redirect_uris"
+  plaintext_value = var.vault_config_oidc_allowed_redirect_uris
 }
 
 resource "github_actions_secret" "vault_config_oidc_group_mappings" {
-  repository       = github_repository.vault_configuration.name
-  secret_name      = "TF_VAR_oidc_group_mappings"
-  plaintext_value  = var.vault_config_oidc_group_mappings
+  repository      = github_repository.vault_configuration.name
+  secret_name     = "TF_VAR_oidc_group_mappings"
+  plaintext_value = var.vault_config_oidc_group_mappings
 }
 
 resource "github_repository" "module_azurerm_keyvault" {
@@ -125,7 +125,7 @@ resource "github_repository" "module_azurerm_keyvault" {
   visibility  = "public"
 
   template {
-    owner = split("/",github_repository.tf_repo_template.full_name)[0]
+    owner      = split("/", github_repository.tf_repo_template.full_name)[0]
     repository = github_repository.tf_repo_template.name
   }
 }
@@ -140,7 +140,7 @@ resource "github_repository" "module_azurerm_virtualnetwork" {
   visibility  = "public"
 
   template {
-    owner = split("/",github_repository.tf_repo_template.full_name)[0]
+    owner      = split("/", github_repository.tf_repo_template.full_name)[0]
     repository = github_repository.tf_repo_template.name
   }
 }
@@ -155,7 +155,7 @@ resource "github_repository" "module_azurerm_storageaccount" {
   visibility  = "public"
 
   template {
-    owner = split("/",github_repository.tf_repo_template.full_name)[0]
+    owner      = split("/", github_repository.tf_repo_template.full_name)[0]
     repository = github_repository.tf_repo_template.name
   }
 }
@@ -170,7 +170,7 @@ resource "github_repository" "module_azurerm_hashicorpvault" {
   visibility  = "public"
 
   template {
-    owner = split("/",github_repository.tf_repo_template.full_name)[0]
+    owner      = split("/", github_repository.tf_repo_template.full_name)[0]
     repository = github_repository.tf_repo_template.name
   }
 }

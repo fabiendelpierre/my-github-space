@@ -7,7 +7,7 @@ resource "github_repository" "spacelift_administration" {
   visibility  = "public"
 
   template {
-    owner = split("/",github_repository.tf_repo_template.full_name)[0]
+    owner      = split("/", github_repository.tf_repo_template.full_name)[0]
     repository = github_repository.tf_repo_template.name
   }
 }
@@ -18,7 +18,7 @@ resource "github_repository" "azure_msdn_subscription_spacelift" {
   visibility  = "public"
 
   template {
-    owner = split("/",github_repository.tf_repo_template.full_name)[0]
+    owner      = split("/", github_repository.tf_repo_template.full_name)[0]
     repository = github_repository.tf_repo_template.name
   }
 }
