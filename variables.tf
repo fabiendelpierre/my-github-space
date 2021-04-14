@@ -11,5 +11,5 @@ variable "vault_config_oidc_client_secret" {
 }
 
 variable "vault_config_oidc_allowed_redirect_uris" {
-  type = list(string)
+  type = string
 }
