@@ -89,6 +89,30 @@ output "vault_configuration_repo" {
   value = github_repository.vault_configuration
 }
 
+resource "github_actions_secret" "vault_config_oidc_discovery_url" {
+  repository       = github_repository.vault_configuration.name
+  secret_name      = "TF_VAR_oidc_discovery_url"
+  plaintext_value  = var.vault_config_oidc_discovery_url
+}
+
+resource "github_actions_secret" "vault_config_oidc_client_id" {
+  repository       = github_repository.vault_configuration.name
+  secret_name      = "TF_VAR_oidc_client_id"
+  plaintext_value  = var.vault_config_oidc_client_id
+}
+
+resource "github_actions_secret" "vault_config_oidc_client_secret" {
+  repository       = github_repository.vault_configuration.name
+  secret_name      = "TF_VAR_oidc_client_secret"
+  plaintext_value  = var.vault_config_oidc_client_secret
+}
+
+resource "github_actions_secret" "vault_config_oidc_allowed_redirect_uris" {
+  repository       = github_repository.vault_configuration.name
+  secret_name      = "TF_VAR_oidc_allowed_redirect_uris"
+  plaintext_value  = var.vault_config_oidc_allowed_redirect_uris
+}
+
 resource "github_repository" "module_azurerm_keyvault" {
   name        = "terraform-azurerm-keyvault"
   description = "Simple module to create an instance of Azure Key Vault"
